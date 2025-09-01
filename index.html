@@ -8,49 +8,103 @@
       margin: 0;
       padding: 0;
       font-family: 'Georgia', serif;
-      background: linear-gradient(135deg, #d4af37, #b8860b, #ffd700);
+      background: radial-gradient(circle at top, #ffd700, #b8860b, #3d2b1f);
       color: white;
       text-align: center;
+      overflow: hidden;
     }
     .card {
-      width: 600px;
+      width: 650px;
       margin: 50px auto;
-      background: rgba(0, 0, 0, 0.6);
-      border-radius: 20px;
-      padding: 30px;
-      box-shadow: 0 0 30px rgba(0,0,0,0.7);
+      background: rgba(0, 0, 0, 0.7);
+      border-radius: 30px;
+      padding: 40px;
+      border: 5px solid #ffd700;
+      box-shadow: 0 0 40px #ffd700, inset 0 0 20px #b8860b;
+      position: relative;
+      z-index: 2;
     }
     .card img {
-      width: 250px;
+      width: 260px;
       height: auto;
-      border-radius: 15px;
-      border: 4px solid #ffd700;
-      box-shadow: 0 0 15px #ffd700;
+      border-radius: 20px;
+      border: 5px solid #ffd700;
+      box-shadow: 0 0 25px #ffd700;
+      animation: zoomIn 3s ease-in-out infinite alternate;
     }
     h1 {
-      font-size: 40px;
+      font-size: 48px;
       margin: 20px 0;
       color: #ffd700;
-      text-shadow: 2px 2px 5px black;
+      text-shadow: 3px 3px 8px black, 0 0 15px #ffd700;
+      animation: shine 3s infinite linear;
+    }
+    .crown {
+      font-size: 60px;
+      margin-bottom: -10px;
+      animation: bounce 2s infinite;
     }
     p {
-      font-size: 20px;
+      font-size: 22px;
       margin-top: 10px;
       color: #fff8dc;
+      text-shadow: 1px 1px 5px black;
     }
     .decor {
-      font-size: 30px;
-      margin: 15px 0;
+      font-size: 32px;
+      margin: 20px 0;
+    }
+
+    /* Animations */
+    @keyframes bounce {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+    }
+    @keyframes zoomIn {
+      from { transform: scale(1); }
+      to { transform: scale(1.08); }
+    }
+    @keyframes shine {
+      0% { text-shadow: 3px 3px 8px black, 0 0 5px #fff, 0 0 10px #ffd700; }
+      50% { text-shadow: 3px 3px 8px black, 0 0 25px #fff, 0 0 40px #ffd700; }
+      100% { text-shadow: 3px 3px 8px black, 0 0 5px #fff, 0 0 10px #ffd700; }
+    }
+    @keyframes float {
+      0% { transform: translateY(0) translateX(0); opacity: 0; }
+      50% { opacity: 1; }
+      100% { transform: translateY(-900px) translateX(200px); opacity: 0; }
+    }
+
+    /* Sparkles */
+    .sparkle {
+      position: absolute;
+      width: 8px;
+      height: 8px;
+      background: #fffacd;
+      border-radius: 50%;
+      top: 0;
+      left: 0;
+      animation: float 8s infinite ease-in-out;
+      opacity: 0.8;
+      box-shadow: 0 0 15px #ffd700;
     }
   </style>
 </head>
 <body>
+  <!-- Sparkles -->
+  <div class="sparkle" style="left:15%; animation-delay:0s;"></div>
+  <div class="sparkle" style="left:35%; animation-delay:2s;"></div>
+  <div class="sparkle" style="left:55%; animation-delay:4s;"></div>
+  <div class="sparkle" style="left:75%; animation-delay:1s;"></div>
+  <div class="sparkle" style="left:90%; animation-delay:3s;"></div>
+
   <div class="card">
-    <div class="decor">✨🎂✨</div>
-    <!-- Make sure your image file is saved as appu.jpg -->
-    <img src="Appu.jpg" alt="Appu Birthday Photo">
+    <div class="crown">👑</div>
     <h1>Happy Birthday Appu 🎉</h1>
-    <p>Wishing you a golden day full of joy, smiles, and endless blessings 💛</p>
+    <div class="decor">✨🎂✨</div>
+    <!-- Make sure your image file is in the same folder and named appu.jpg -->
+    <img src="appu.jpg" alt="Appu Birthday Photo">
+    <p>May your special day be as royal and golden as your soul 💛<br>Wishing you joy, success, and endless blessings.</p>
     <div class="decor">🎊🎁🎉</div>
   </div>
 </body>
